@@ -81,9 +81,11 @@ export default function useInjectScript(url: string): [boolean, boolean] {
           'injectorState.scriptMap[url] ????',
           injectorState.scriptMap[url]
         )
-        injectorState.scriptMap[url].addEventListener('error', () =>
+        injectorState.scriptMap[url].addEventListener('error', (e: any) => {
+          console.log('eeeee ????', e)
+          console.dir(e)
           onScriptEvent(true, 1)
-        )
+        })
         injectorState.injectorMap[url] = 'loading'
       }
     }
