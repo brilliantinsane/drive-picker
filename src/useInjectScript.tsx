@@ -48,9 +48,9 @@ export default function useInjectScript(url: string): [boolean, boolean] {
       return
     }
 
-    const onScriptEvent = (error: boolean) => {
+    const onScriptEvent = (error: boolean, where?: number) => {
       // Get all error or load functions and call them
-      if (error) console.log('error loading the script')
+      if (error) console.log('error loading the script', where)
       injectorState.queue?.[url]?.forEach((job) => job(error))
 
       if (error && injectorState.scriptMap[url]) {
@@ -77,8 +77,12 @@ export default function useInjectScript(url: string): [boolean, boolean] {
         injectorState.scriptMap[url].addEventListener('load', () =>
           onScriptEvent(false)
         )
+        console.log(
+          'injectorState.scriptMap[url] ????',
+          injectorState.scriptMap[url]
+        )
         injectorState.scriptMap[url].addEventListener('error', () =>
-          onScriptEvent(true)
+          onScriptEvent(true, 1)
         )
         injectorState.injectorMap[url] = 'loading'
       }
@@ -99,7 +103,7 @@ export default function useInjectScript(url: string): [boolean, boolean] {
         onScriptEvent(true)
       )
       injectorState.scriptMap[url]?.removeEventListener('error', () =>
-        onScriptEvent(true)
+        onScriptEvent(true, 2)
       )
     }
   }, [url])
