@@ -12,13 +12,9 @@
     "lint": "eslint 'src/**/*.{js,ts,tsx}' --fix",
     "format": "prettier --write ./src/*"
   },
-  "author": "Jose-cd",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Jose-cd/React-google-drive-picker.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Jose-cd/React-google-drive-picker/issues"
+    "url": "https://github.com/brilliantinsane/drive-picker"
   },
   "license": "MIT",
   "keywords": [
