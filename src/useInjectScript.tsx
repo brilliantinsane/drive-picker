@@ -20,6 +20,7 @@ type StateType = {
 }
 
 export default function useInjectScript(url: string): [boolean, boolean] {
+  console.log('AAAAAAAAAAAAA')
   const [state, setState] = useState<StateType>({
     loaded: false,
     error: false,

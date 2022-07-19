@@ -14,6 +14,7 @@ export default function useDrivePicker(): [
   (config: PickerConfiguration) => boolean | undefined,
   authResult | undefined
 ] {
+  console.log('PICKER ????? 1111 2222')
   const defaultScopes = ['https://www.googleapis.com/auth/drive.readonly']
   const [loaded, error] = useInjectScript('https://apis.google.com/js/api.js')
   const [loadedGsi, errorGsi] = useInjectScript(
@@ -90,6 +91,7 @@ export default function useDrivePicker(): [
 
   // load the Drive picker api
   const loadApis = () => {
+    console.log('inininin loadapis ????? @@@@@@@')
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     window.gapi.load('auth')
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
